@@ -1,6 +1,6 @@
 # Code for LMNL Challenge
 
-
+Please follow the package requirements in each subfolder.
 
 ```
 bash run_aggre.sh
