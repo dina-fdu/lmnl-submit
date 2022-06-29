@@ -1,0 +1,33 @@
+model:
+  type: resnet34
+  noise_type: noisy100
+  dataset: cifar100
+  lambda_u: 30.0
+
+dataset: cifar100
+aug: autoaug_cifar10   # autoaug_extend
+cutout: 16
+batch: 320
+batch_unsup: 960
+ratio_unsup: 1  
+ratio_mode: 'constant'
+epoch: 110 # 320
+lr: 0.0002
+lr_schedule:
+  type: 'cosine'
+  warmup:
+    multiplier: 10 #300
+    epoch: 2 #24
+optimizer:
+  type: sgd
+  nesterov: True
+  decay: 0.0005
+
+random_state: 0
+train_labels: '../../SimiFeat/results/mv_cifar100_noisy_label30.0_label_balance.npy'
+unsup_idx: '../../SimiFeat/results/mv_cifar100_noisy_label30.0_pred_balance.npy'
+pretrain: ''
+
+tqdm_disable: False
+
+

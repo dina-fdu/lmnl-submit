@@ -1,0 +1,33 @@
+model:
+  type: resnet34
+  noise_type: worst
+  dataset: cifar10
+  lambda_u: 5.0
+
+dataset: cifar10
+aug: autoaug_cifar10   # autoaug_extend
+cutout: 16
+batch: 320
+batch_unsup: 160
+ratio_unsup: 0.8
+ratio_mode: 'constant'
+epoch: 110
+lr: 0.0002
+lr_schedule:
+  type: 'cosine'
+  warmup:
+    multiplier: 10
+    epoch: 2
+optimizer:
+  type: sgd
+  nesterov: True
+  decay: 0.0005
+
+random_state: 0
+train_labels: '../../SimiFeat/results/mv_cifar10_worse_label5.0_label.npy'
+unsup_idx: '../../SimiFeat/results/mv_cifar10_worse_label5.0_pred.npy'
+pretrain: ''
+
+tqdm_disable: False
+
+
