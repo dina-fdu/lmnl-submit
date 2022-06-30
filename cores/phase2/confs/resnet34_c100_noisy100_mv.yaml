@@ -11,13 +11,13 @@ batch: 320
 batch_unsup: 240
 ratio_unsup: 1  
 ratio_mode: 'constant'
-epoch: 110 # 320
+epoch: 140 # 320
 lr: 0.0002
 lr_schedule:
   type: 'cosine'
   warmup:
-    multiplier: 10 #300
-    epoch: 2 #24
+    multiplier: 20 #300
+    epoch: 10 #24
 optimizer:
   type: sgd
   nesterov: True

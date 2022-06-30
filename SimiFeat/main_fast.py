@@ -314,8 +314,12 @@ if __name__ == "__main__":
                 # sel_clean_summary = np.round(aa).astype(bool)
                 # sel_noisy_summary = np.round(1.0 - aa).astype(bool)
 
-                sel_clean_summary = aa > 0.8
-                sel_noisy_summary = aa <= 0.8
+                if config.dataset == 'cifar100':
+                    thre = 0.7
+                else:
+                    thre = 0.8
+                sel_clean_summary = aa > thre
+                sel_noisy_summary = aa <= thre
 
                 sel_noisy_summary[nan_flag] = False
                 print(
